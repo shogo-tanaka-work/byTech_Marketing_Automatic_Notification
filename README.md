@@ -1,0 +1,2 @@
+# byTech_Marketing_Automatic_Notification
+byTech マーケティングツールのパラメータ自動取得と通知するアプリ（GAS）
