@@ -1,0 +1,163 @@
+<mxfile host="65bd71144e">
+    <diagram name="マーケティング自動化システム" id="marketing-automation-flow">
+        <mxGraphModel dx="1079" dy="536" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="timer-ga4-daily" value="GA4日次レポート&#10;時間トリガー" style="ellipse;whiteSpace=wrap;html=1;fillColor=#b19cd9;strokeColor=#7a5b99;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="50" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="timer-ga4-realtime" value="GA4リアルタイム&#10;時間トリガー" style="ellipse;whiteSpace=wrap;html=1;fillColor=#b19cd9;strokeColor=#7a5b99;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="150" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="timer-clarity" value="Clarity&#10;時間トリガー" style="ellipse;whiteSpace=wrap;html=1;fillColor=#b19cd9;strokeColor=#7a5b99;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="250" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="property-config" value="プロパティ設定&#10;読み込み" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e6cc70;strokeColor=#b8941a;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="250" y="70" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="preset-processing" value="メトリクス・&#10;ディメンション&#10;プリセット処理" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e6cc70;strokeColor=#b8941a;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="420" y="60" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="ga4-client" value="GA4クライアント&#10;初期化" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#a6c96a;strokeColor=#6b8533;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="600" y="70" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="mcp-server" value="GA4 MCP Server&#10;(Vercel)" style="shape=cylinder;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;fillColor=#a4b9e6;strokeColor=#5a73a6;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="780" y="50" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="ga4-api" value="GA4 Reporting API&#10;データ取得" style="shape=cylinder;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;fillColor=#d46b6b;strokeColor=#9e3e3e;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="950" y="50" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="timer-ga4-daily" target="property-config" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="property-config" target="preset-processing" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="preset-processing" target="ga4-client" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="ga4-client" target="mcp-server" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="mcp-server" target="ga4-api" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ga4-realtime-client" value="GA4リアルタイム&#10;クライアント" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#a6c96a;strokeColor=#6b8533;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="250" y="170" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="realtime-preset" value="リアルタイム用&#10;プリセット処理" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e6cc70;strokeColor=#b8941a;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="420" y="170" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="timer-ga4-realtime" target="ga4-realtime-client" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="ga4-realtime-client" target="realtime-preset" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="realtime-preset" target="mcp-server" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="clarity-client" value="Clarityクライアント&#10;初期化" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#a6c96a;strokeColor=#6b8533;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="250" y="270" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="clarity-mcp" value="Clarity MCP Server&#10;(Vercel)" style="shape=cylinder;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;fillColor=#a4b9e6;strokeColor=#5a73a6;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="420" y="250" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="clarity-api" value="Microsoft Clarity API&#10;ユーザー行動データ" style="shape=cylinder;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;fillColor=#d46b6b;strokeColor=#9e3e3e;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="600" y="250" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="timer-clarity" target="clarity-client" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="clarity-client" target="clarity-mcp" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="clarity-mcp" target="clarity-api" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="data-normalize" value="データ正規化&#10;・集計処理" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#a6c96a;strokeColor=#6b8533;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="300" y="380" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="llm-gemini" value="LLM (Gemini)&#10;自然言語レポート変換" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e6cc70;strokeColor=#b8941a;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="480" y="380" width="140" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="gemini-api" value="Gemini API&#10;テキスト生成" style="shape=cylinder;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;fillColor=#d46b6b;strokeColor=#9e3e3e;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="680" y="360" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="discord-chunked" value="Discord分割送信&#10;notifyDiscordChunked()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d46b6b;strokeColor=#9e3e3e;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="480" y="480" width="140" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="discord-webhook" value="Discord Webhook&#10;レポート通知" style="shape=cylinder;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;fillColor=#d46b6b;strokeColor=#9e3e3e;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="680" y="460" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="ga4-api" target="data-normalize" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="clarity-api" target="data-normalize" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="data-normalize" target="llm-gemini" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="llm-gemini" target="gemini-api" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="llm-gemini" target="discord-chunked" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="discord-chunked" target="discord-webhook" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="process-complete" value="レポート送信完了" style="ellipse;whiteSpace=wrap;html=1;fillColor=#b19cd9;strokeColor=#7a5b99;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="490" y="580" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="discord-webhook" target="process-complete" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="title" value="&lt;font color=&quot;#fafafa&quot;&gt;マーケティング自動化システム フローチャート&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="400" y="10" width="400" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="property-detail" value="GA4プロパティ設定:&#10;・アフィリエイト用LP[lp2]&#10;・セミナー(lp4)&#10;・セミナー(Meta)[lp3]&#10;・メインLP[generative-ai]&#10;・比較記事専用LP[lp]&#10;・AI HACK経由(lp)&#10;・オーガニック&#10;・toB/研修(Google)&#10;・toC/スクール(Google)&#10;・toC/スクール(Yahoo)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e6b366;strokeColor=#c7842e;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="1200" y="50" width="200" height="180" as="geometry"/>
+                </mxCell>
+                <mxCell id="metrics-detail" value="メトリクスプリセット:&#10;・engagement: セッション、&#10;  エンゲージメント率など&#10;・users: 総ユーザー、新規&#10;  ユーザー、アクティブユーザー&#10;・views: ページビュー関連&#10;・events: コンバージョン、&#10;  イベント数&#10;・revenue: 収益関連&#10;&#10;ディメンションプリセット:&#10;・時間軸: 日付、曜日&#10;・流入元: ソース、メディア&#10;・コンテンツ: ページパス&#10;・地域: 国、地域、都市&#10;・技術: デバイス、ブラウザ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#a4b9e6;strokeColor=#5a73a6;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="1200" y="250" width="200" height="240" as="geometry"/>
+                </mxCell>
+                <mxCell id="modules-title" value="主要モジュール" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="1200" y="520" width="120" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="module-main" value="main.js&#10;・GA4レポート実行&#10;・Clarityレポート実行&#10;・LLM連携" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#a6c96a;strokeColor=#6b8533;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="1200" y="560" width="160" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="module-ga4-entry" value="ga4_entry.js&#10;・プロパティ別設定&#10;・プリセット定義&#10;・個別実行関数" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e6cc70;strokeColor=#b8941a;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="1200" y="660" width="160" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="module-llm" value="LLM.js&#10;・Gemini API連携&#10;・レポート整形&#10;・エラーハンドリング" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e6cc70;strokeColor=#b8941a;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="1380" y="560" width="160" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="module-discord" value="discord.js&#10;・Webhook通知&#10;・メッセージ分割&#10;・レート制限対応" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d46b6b;strokeColor=#9e3e3e;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="1380" y="660" width="160" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="error-handling" value="エラーハンドリング:&#10;・プロパティ単位での&#10;  エラー分離&#10;・Discord通知によるエラー報告&#10;・リトライ機能&#10;・ログ出力" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d46b6b;strokeColor=#9e3e3e;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="380" width="180" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-title" value="凡例" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="1420" y="520" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-trigger" value="トリガー" style="ellipse;whiteSpace=wrap;html=1;fillColor=#b19cd9;strokeColor=#7a5b99;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="1450" y="380" width="70" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-process" value="処理" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#a6c96a;strokeColor=#6b8533;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="1450" y="420" width="70" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-api" value="API/外部" style="shape=cylinder;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;fillColor=#d46b6b;strokeColor=#9e3e3e;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="1455" y="460" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-config" value="設定/変換" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e6cc70;strokeColor=#b8941a;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="1450" y="500" width="70" height="30" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
